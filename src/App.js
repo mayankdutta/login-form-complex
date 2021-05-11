@@ -17,7 +17,6 @@ function App() {
     email: "",
     pno: "",
   });
-
   const change = (event) => {
     setData(function (prevData) {
       if (event.target.name === "fname")
@@ -51,8 +50,21 @@ function App() {
     });
   };
 
+  const [detail, setDetail] = useState({
+    fname: "",
+    lname: "",
+    email: "",
+    pno: "",
+  });
+
   const done = (event) => {
     event.preventDefault();
+    setDetail({
+      fname: data.fname,
+      lname: data.lname,
+      email: data.email,
+      pno: data.pno,
+    });
   };
   return (
     <div className="" style={CSS}>
@@ -102,10 +114,10 @@ function App() {
       </form>
 
       <div className="content-center justify-center my-10 space-y-5 grid justify-items-center grid-row-4 grid-col-1">
-        <div className={outputField}> {data.fname}</div>
-        <div className={outputField}> {data.lname}</div>
-        <div className={outputField}> {data.email}</div>
-        <div className={outputField}> {data.pno}</div>
+        <div className={outputField}> {detail.fname}</div>
+        <div className={outputField}> {detail.lname}</div>
+        <div className={outputField}> {detail.email}</div>
+        <div className={outputField}> {detail.pno}</div>
       </div>
     </div>
   );
